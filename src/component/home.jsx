@@ -3,11 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import fetchData from "../redux/API";
 
+const BASE_URL = 'https://api.artic.edu/api/v1/artworks?page=1'
+
 const Home = () => {
 
     const { artwork, status, pagination } = useSelector((store) => store.art);
 
-    const [page, setPage] = useState('https://api.artic.edu/api/v1/artworks?page=1&fields=id,title,artist_display,date_display,main_reference_number,api_link,image_id');
+    const [page, setPage] = useState(BASE_URL);
 
     const navigate = useNavigate();
 
@@ -33,11 +35,15 @@ const Home = () => {
         {
             artwork.map((art) => (
                 <li key={art.id}>
-                <div>{art.id}</div>
                 <div>{art.title}</div>
-                <div>{art.link}</div>
                 <img src={art.image} alt="" />
-                <button type='button' onClick={()=>navigate('/details', art.id)}>view details</button>
+                <button type='button' onClick={()=>navigate('/details', {
+                    state: {
+                        object: art,
+                    },
+                })}>
+                view details
+                </button>
                 </li>
             ))
         }</ul>
