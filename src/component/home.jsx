@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import fetchData from "../redux/API";
 
 const Home = () => {
 
     const [page, setPage] = useState(1);
+    
+    const navigate = useNavigate();
 
     const nextPage = () => {
         if (page < 9964) setPage(page + 1);
@@ -30,6 +33,7 @@ const Home = () => {
                 <div>{art.title}</div>
                 <div>{art.link}</div>
                 <img src={art.image} alt="" />
+                <button type='button' onClick={()=>navigate('/details')}>view details</button>
                 </li>
             ))
         }</ul>
