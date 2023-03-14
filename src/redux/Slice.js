@@ -20,7 +20,8 @@ export const Slice = createSlice({
         }))
         .addCase(fetchData.fulfilled, (state, action) => {
             const data = action.payload.data;
-            console.log(data);
+            const page = action.payload.pagination;
+            console.log(page);
             return {
                 ...state,
                 artwork: data.map((art) => ({
@@ -36,6 +37,14 @@ export const Slice = createSlice({
             ...state,
             status: 'failed',
         }));
+        // .addCase(fetchData.rejected, (state, action) => {
+        //     const error = action.error
+        //     return {
+        //         ...state,
+        //         status: 'failed',
+        //         artwork: [...state.artwork, { Message: error.message, code: error.code, name: error.name, }],
+        //     }
+        // });
     }
 });
 

@@ -1,13 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import fetchData from "../redux/API";
 
 const Home = () => {
-    const { artwork } = useSelector((store) => store.art);
+
+    const [page, setPage] = useState(1);
+
+    const nextPage = () => {
+        if (page < 9964) setPage(page + 1);
+    }
+
+    const prevPage = () => {
+        if (page > 1)
+        setPage(page - 1);
+    }
+
+    const { artwork, status } = useSelector((store) => store.art);
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(fetchData());
-    }, [dispatch]);
+        dispatch(fetchData(page));
+    }, [dispatch, page]);
 
     const displayArt = artwork.length ? (
         <ul>
@@ -21,14 +33,15 @@ const Home = () => {
                 </li>
             ))
         }</ul>
-    ) : (<p>there is no book on the shelf</p>);
+    ) : (<p>{status}</p>);
 
     return (
         <div>
         {displayArt}
         <div>Home page</div>
+        <button type='button' onClick={prevPage}>Prev page</button>
+        <button type='button' onClick={nextPage}>Next page</button>
         </div>
-        
     )
 }
 
