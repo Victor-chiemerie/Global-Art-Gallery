@@ -5,20 +5,24 @@ import fetchData from "../redux/API";
 
 const Home = () => {
 
-    const [page, setPage] = useState(1);
-    
+    const { artwork, status, pagination } = useSelector((store) => store.art);
+
+    const [page, setPage] = useState('https://api.artic.edu/api/v1/artworks?page=1&fields=id,title,artist_display,date_display,main_reference_number,api_link,image_id');
+
     const navigate = useNavigate();
 
     const nextPage = () => {
-        if (page < 9964) setPage(page + 1);
+        if (pagination.page_number < 9964) {
+            setTimeout(setPage(pagination.next_url), 1000)
+        } 
     }
 
     const prevPage = () => {
-        if (page > 1)
-        setPage(page - 1);
+        if (pagination.page_number > 1) {
+            setTimeout(setPage(pagination.prev_url), 1000)
+        }
     }
 
-    const { artwork, status } = useSelector((store) => store.art);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchData(page));
@@ -33,7 +37,7 @@ const Home = () => {
                 <div>{art.title}</div>
                 <div>{art.link}</div>
                 <img src={art.image} alt="" />
-                <button type='button' onClick={()=>navigate('/details')}>view details</button>
+                <button type='button' onClick={()=>navigate('/details', art.id)}>view details</button>
                 </li>
             ))
         }</ul>

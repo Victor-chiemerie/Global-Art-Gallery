@@ -6,7 +6,7 @@ const IMAGE_URL = 'https://www.artic.edu/iiif/2';
 const initialState = {
     artwork: [],
     status: 'idle',
-    pagination: [],
+    pagination: {},
 };
 
 export const Slice = createSlice({
@@ -31,6 +31,7 @@ export const Slice = createSlice({
                     image: `${IMAGE_URL}/${art.image_id}/full/843,/0/default.jpg`,
                 })),
                 status: 'loaded',
+                pagination: { ...state.pagination, page_number: page.current_page, next_url: page.next_url, prev_url: page.prev_url || '', },
             };
         })
         .addCase(fetchData.rejected, (state) => ({
