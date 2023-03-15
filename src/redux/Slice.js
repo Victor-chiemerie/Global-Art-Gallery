@@ -7,6 +7,7 @@ const initialState = {
     artwork: [],
     status: 'idle',
     pagination: {},
+    error: null,
 };
 
 export const Slice = createSlice({
@@ -42,18 +43,11 @@ export const Slice = createSlice({
                 pagination: { ...state.pagination, page_number: page.current_page, next_url: page.next_url || '', prev_url: page.prev_url || '', },
             };
         })
-        .addCase(fetchData.rejected, (state) => ({
+        .addCase(fetchData.rejected, (state, action) => ({
             ...state,
             status: 'failed',
+            // error: [ ...state.error, action.error.message, action.error.code, action.error.name, ],
         }));
-        // .addCase(fetchData.rejected, (state, action) => {
-        //     const error = action.error
-        //     return {
-        //         ...state,
-        //         status: 'failed',
-        //         artwork: [...state.artwork, { Message: error.message, code: error.code, name: error.name, }],
-        //     }
-        // });
     }
 });
 

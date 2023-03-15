@@ -1,9 +1,17 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+// import axios from "axios";
 
 const fetchData = createAsyncThunk('data/fetchData', async (URL) => {
-        const response = await axios.get(URL);
-        return response.data;
+        try {
+                const response = await fetch(URL);
+                const data = await response.json();
+                return data;
+              } catch (error) {
+                return error;
+              }
+        // const response = await fetch(URL);
+        //         const data = await response.json();
+        //         return data;
 });
 
 export default fetchData;
