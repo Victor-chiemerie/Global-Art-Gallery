@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import fetchData from "../redux/API";
-// import './loadingPage.css';
+import './loadingPage.css';
 
 const BASE_URL = 'https://api.artic.edu/api/v1/artworks?page=1'
 

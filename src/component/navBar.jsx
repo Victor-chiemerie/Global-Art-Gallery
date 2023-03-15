@@ -8,7 +8,8 @@ const NavBar = () => {
       <Container>
         <Navbar.Brand href="/">Art Museum</Navbar.Brand>
         <Navbar.Text>
-        <i class="bi bi-alarm-fill text-warning" style={{ fontSize: 50 }}></i>
+        <i className="bi bi-mic-fill text-light" style={{ fontSize: 20 }}></i>
+        <i className="bi bi-gear text-light ps-4" style={{ fontSize: 20 }}></i>
           </Navbar.Text>
       </Container>
     </Navbar>
