@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import fetchData from "../redux/API";
+import './loadingPage.css';
 
 const BASE_URL = 'https://api.artic.edu/api/v1/artworks?page=1'
 
@@ -25,6 +26,36 @@ const Home = () => {
         }
     }
 
+    const prev_page = (pagination.page_number > 1) ? (<button type='button' onClick={prevPage}>Prev page</button>) : '';
+    const next_page = (pagination.page_number < 9964) ? (<button type='button' onClick={nextPage}>Next page</button>) : '';
+    const pageStatus = (status === 'loading...') ? (
+        <section className="loading-section">
+            <div className="loader">
+                <div className="dot" style={{ "--i" : "0" }} />
+                <div className="dot" style={{ "--i" : "1" }} />
+                <div className="dot" style={{ "--i" : "2" }} />
+                <div className="dot" style={{ "--i" : "3" }} />
+                <div className="dot" style={{ "--i" : "4" }} />
+                <div className="dot" style={{ "--i" : "5" }} />
+                <div className="dot" style={{ "--i" : "6" }} />
+                <div className="dot" style={{ "--i" : "7" }} />
+                <div className="dot" style={{ "--i" : "8" }} />
+            </div>
+            <h2>loading...</h2>
+            <div className="loader">
+                <div className="dot" style={{ "--i" : "0" }} />
+                <div className="dot" style={{ "--i" : "1" }} />
+                <div className="dot" style={{ "--i" : "2" }} />
+                <div className="dot" style={{ "--i" : "3" }} />
+                <div className="dot" style={{ "--i" : "4" }} />
+                <div className="dot" style={{ "--i" : "5" }} />
+                <div className="dot" style={{ "--i" : "6" }} />
+                <div className="dot" style={{ "--i" : "7" }} />
+                <div className="dot" style={{ "--i" : "8" }} />
+            </div>
+        </section>) : status;
+
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchData(page));
@@ -46,15 +77,15 @@ const Home = () => {
                 </button>
                 </li>
             ))
-        }</ul>
-    ) : (<p>{status}</p>);
+        }
+        {prev_page}
+        {next_page}
+        </ul>
+    ) : (<section>{pageStatus}</section>);
 
     return (
         <div>
         {displayArt}
-        <div>Home page</div>
-        <button type='button' onClick={prevPage}>Prev page</button>
-        <button type='button' onClick={nextPage}>Next page</button>
         </div>
     )
 }
