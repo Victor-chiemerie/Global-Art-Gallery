@@ -128,7 +128,7 @@ const Home = () => {
     }, [dispatch, page]);
 
     const displayArt = artwork.length ? (
-        <ul className={style.artList}>
+        <ul className={`${style.artList} pb-5`}>
         {
             artwork.filter((country) => country.place_of_origin.includes(nation)).map((art, index) => (
                 <li key={art.id} className={`item${index}`} onClick={()=>navigate('/details', {
@@ -140,8 +140,8 @@ const Home = () => {
                 <div>
                 <i className="bi bi-arrow-right-circle-fill text-dark" style={{ fontSize: 20 }}></i>
                 <menu>
-                <h5 className="text-dark text-uppercase">{art.title}</h5>
-                <h6 className="text-dark text-uppercase">{art.place_of_origin}</h6>
+                <h6 className="text-dark">{art.title}</h6>
+                <p className="text-dark text-uppercase mb-0">{art.place_of_origin}</p>
                 </menu>
                 </div>
                 </li>
@@ -175,7 +175,7 @@ const Home = () => {
 
     return (
         <>
-        <Container className='mt-4'>
+        <Container className='mt-4 mb-4'>
         <div className="form-group mb-2">
         <input type="text" className="form-control" placeholder="filter by country example (France)" onChange={searchfilter} />
       </div>
