@@ -7,7 +7,7 @@ import "./App.css";
 
 function App() {
   return (
-    <>
+    <div className="App">
       <Router>
       <NavBar />
         <Routes>
@@ -15,7 +15,7 @@ function App() {
           <Route exact path="/details" element={<Details/>}/>
         </Routes>
       </Router>
-    </>
+    </div>
   );
 }
 

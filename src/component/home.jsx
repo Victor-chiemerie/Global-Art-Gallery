@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import fetchData from "../redux/API";
+import { Container, Button } from 'react-bootstrap';
+import style from '../styles/home.module.scss'
 import './loadingPage.css';
 
 const BASE_URL = 'https://api.artic.edu/api/v1/artworks?page=1'
@@ -26,8 +28,8 @@ const Home = () => {
         }
     }
 
-    const prev_page = (pagination.page_number > 1) ? (<button type='button' onClick={prevPage}>Prev page</button>) : '';
-    const next_page = (pagination.page_number < 9964) ? (<button type='button' onClick={nextPage}>Next page</button>) : '';
+    const prev_page = (pagination.page_number > 1) ? (<Button type='button' onClick={prevPage}>Prev page</Button>) : '';
+    const next_page = (pagination.page_number < 9964) ? (<Button type='button' onClick={nextPage}>Next page</Button>) : '';
     const pageStatus = (status === 'loading...') ? (
         <section className="loading-section">
             <div className="loader">
@@ -62,31 +64,33 @@ const Home = () => {
     }, [dispatch, page]);
 
     const displayArt = artwork.length ? (
-        <ul>
+        <ul className={style.artList}>
         {
-            artwork.map((art) => (
-                <li key={art.id}>
-                <div>{art.title}</div>
-                <img src={art.image} alt="" />
-                <button type='button' onClick={()=>navigate('/details', {
+            artwork.map((art, index) => (
+                <li key={art.id} className={`item${index}`} onClick={()=>navigate('/details', {
                     state: {
                         object: art,
                     },
                 })}>
-                view details
-                </button>
+                <img src={art.image} alt="" />
+                <div>
+                <i className="bi bi-arrow-left-circle-fill text-dark" style={{ fontSize: 20 }}></i>
+                <h5 className="text-dark">{art.title}</h5>
+                </div>
                 </li>
             ))
         }
-        {prev_page}
-        {next_page}
         </ul>
     ) : (<section>{pageStatus}</section>);
 
     return (
-        <div>
+        <>
+        <Container className='mt-4'>
         {displayArt}
-        </div>
+        {prev_page}
+        {next_page}
+        </Container>
+        </>
     )
 }
 
