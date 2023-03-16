@@ -5,6 +5,7 @@ import fetchData from "../redux/API";
 import { Container, Button } from 'react-bootstrap';
 import style from '../styles/home.module.scss'
 import './loadingPage.css';
+import Icon from '../images/europe.jpeg';
 
 const BASE_URL = 'https://api.artic.edu/api/v1/artworks?page=1'
 
@@ -62,12 +63,16 @@ const Home = () => {
     // const france = artwork.filter((french) => item.place_of_origin === 'Italy')
     // console.log(france);
 
+    const meat = [];
+
     Europe.forEach((nation) => { 
         const me = artwork.filter((country) => country.place_of_origin === nation)
         if (me.length) {
-            console.log(me.length)
+            meat.push(me);
         }
     })
+
+    console.log(meat);
 
 
     const [page, setPage] = useState(BASE_URL);
@@ -121,19 +126,40 @@ const Home = () => {
         dispatch(fetchData(page));
     }, [dispatch, page]);
 
-    const displayArt = artwork.length ? (
+    // const displayArt = artwork.length ? (
+    //     <ul className={style.artList}>
+    //     {
+    //         artwork.map((art, index) => (
+    //             <li key={art.id} className={`item${index}`} onClick={()=>navigate('/details', {
+    //                 state: {
+    //                     object: art,
+    //                 },
+    //             })}>
+    //             <img src={art.image} alt="" />
+    //             <div>
+    //             <i className="bi bi-arrow-left-circle-fill text-dark" style={{ fontSize: 20 }}></i>
+    //             <h5 className="text-dark">{art.title}</h5>
+    //             </div>
+    //             </li>
+    //         ))
+    //     }
+    //     </ul>
+    // ) : (<section>{pageStatus}</section>);
+
+    const list = meat.length ? (
         <ul className={style.artList}>
         {
-            artwork.map((art, index) => (
+            meat.map((art, index) => (
                 <li key={art.id} className={`item${index}`} onClick={()=>navigate('/details', {
                     state: {
                         object: art,
                     },
                 })}>
-                <img src={art.image} alt="" />
+                <img src={art[0].image} alt="" />
                 <div>
                 <i className="bi bi-arrow-left-circle-fill text-dark" style={{ fontSize: 20 }}></i>
-                <h5 className="text-dark">{art.title}</h5>
+                <h5 className="text-dark">{art.length}</h5>
+                <h5 className="text-dark">{art[0].place_of_origin}</h5>
                 </div>
                 </li>
             ))
@@ -144,8 +170,12 @@ const Home = () => {
     return (
         <>
         <Container className='mt-4'>
+        <div className='top'>
+        <img src={Icon} alt="" />
         <h1>European Art</h1>
-        {displayArt}
+        <h2>{meat.length}</h2>
+        </div>
+        {list}
         {prev_page}
         {next_page}
         </Container>
