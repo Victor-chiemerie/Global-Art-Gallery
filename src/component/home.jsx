@@ -106,7 +106,7 @@ const Home = () => {
                 <div className="dot" style={{ "--i" : "7" }} />
                 <div className="dot" style={{ "--i" : "8" }} />
             </div>
-            <h2>loading...</h2>
+            <h4>loading...</h4>
             <div className="loader">
                 <div className="dot" style={{ "--i" : "0" }} />
                 <div className="dot" style={{ "--i" : "1" }} />
@@ -118,7 +118,7 @@ const Home = () => {
                 <div className="dot" style={{ "--i" : "7" }} />
                 <div className="dot" style={{ "--i" : "8" }} />
             </div>
-        </section>) : status;
+        </section>) : (<h4>{status}</h4>);
 
 
     const dispatch = useDispatch();
