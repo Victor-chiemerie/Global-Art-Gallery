@@ -45,7 +45,7 @@ export const Slice = createSlice({
         })
         .addCase(fetchData.rejected, (state) => ({
             ...state,
-            status: 'failed',
+            status: 'Failed to load',
         }));
         // .addCase(fetchData.rejected, (state, action) => {
         //     const error = action.error

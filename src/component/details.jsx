@@ -15,7 +15,7 @@ const Details = () => {
       <ul className={style.artList}>
       {
           item.map((art, index) => (
-              <li key={art.id} className={`item${index}`} onClick={()=>navigate('/', {
+              <li key={art.id} className={`item${index} border`} onClick={()=>navigate('/', {
                   state: {
                       object: art,
                   },
