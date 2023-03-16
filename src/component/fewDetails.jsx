@@ -8,64 +8,65 @@ import './loadingPage.css';
 
 const BASE_URL = 'https://api.artic.edu/api/v1/artworks?page=1'
 
-const Home = () => {
+const FewDetials = () => {
 
-    const Europe = [
-        "France",
-        "Russia",
-        "Germany",
-        "United Kingdom",
-        "Italy",
-        "Spain",
-        "Ukraine",
-        "Poland",
-        "Romania",
-        "Netherlands",
-        "Belgium",
-        "Czech Republic (Czechia)",
-        "Greece",
-        "Portugal",
-        "Sweden",
-        "Hungary",
-        "Belarus",
-        "Austria",
-        "Serbia",
-        "Switzerland",
-        "Bulgaria",
-        "Denmark",
-        "Finland",
-        "Slovakia",
-        "Norway",
-        "Ireland",
-        "Croatia",
-        "Moldova",
-        "Bosnia and Herzegovina",
-        "Albania",
-        "Lithuania",
-        "North Macedonia",
-        "Slovenia",
-        "Latvia",
-        "Estonia",
-        "Montenegro",
-        "Luxembourg",
-        "Malta",
-        "Iceland",
-        "Andorra",
-        "Monaco",
-        "Liechtenstein",
-        "San Marino",
-        "Holy See",
-    ]
+    const [Europe, setEurope] = useState({
+        "France": [],
+        "Russia": [],
+        "Germany": [],
+        "United Kingdom": [],
+        "Italy": [],
+        "Spain": [],
+        "Ukraine": [],
+        "Poland": [],
+        "Romania": [],
+        "Netherlands": [],
+        "Belgium": [],
+        "Czech Republic (Czechia)": [],
+        "Greece": [],
+        "Portugal": [],
+        "Sweden": [],
+        "Hungary": [],
+        "Belarus": [],
+        "Austria": [],
+        "Serbia": [],
+        "Switzerland": [],
+        "Bulgaria": [],
+        "Denmark": [],
+        "Finland": [],
+        "Slovakia": [],
+        "Norway": [],
+        "Ireland": [],
+        "Croatia": [],
+        "Moldova": [],
+        "Bosnia and Herzegovina": [],
+        "Albania": [],
+        "Lithuania": [],
+        "North Macedonia": [],
+        "Slovenia": [],
+        "Latvia": [],
+        "Estonia": [],
+        "Montenegro": [],
+        "Luxembourg": [],
+        "Malta": [],
+        "Iceland": [],
+        "Andorra": [],
+        "Monaco": [],
+        "Liechtenstein": [],
+        "San Marino": [],
+        "Holy See": [],
+    })
 
     const { artwork, status, pagination } = useSelector((store) => store.art);
 
     // const france = artwork.filter((french) => item.place_of_origin === 'Italy')
     // console.log(france);
 
-    Europe.forEach((nation) => { 
+    const europeNations = Object.keys(Europe);
+    europeNations.forEach((nation) => { 
         const me = artwork.filter((country) => country.place_of_origin === nation)
         if (me.length) {
-            console.log(me.length)
+            console.log(me)
         }
     })
 
@@ -144,7 +145,6 @@ const Home = () => {
     return (
         <>
         <Container className='mt-4'>
-        <h1>European Art</h1>
         {displayArt}
         {prev_page}
         {next_page}
@@ -153,4 +153,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default FewDetials;
