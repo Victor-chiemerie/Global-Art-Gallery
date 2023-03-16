@@ -2,8 +2,18 @@ li {
   list-style-type: none;
 }
 
-.App {
-  background-color: rgba(225, 207, 183, 0.56);
+.right_back {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  opacity: 0.5;
+}
+
+.left_back {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  opacity: 0.5;
 }
 
 

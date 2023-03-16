@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import fetchData from "../redux/API";
-import { Container, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import style from '../styles/home.module.scss'
 import './loadingPage.css';
 import Icon from '../images/europe.jpeg';
@@ -91,8 +91,8 @@ const Home = () => {
         }
     }
 
-    const prev_page = (pagination.page_number > 1) ? (<Button type='button' onClick={prevPage}>Prev page</Button>) : '';
-    const next_page = (pagination.page_number < 9964) ? (<Button type='button' onClick={nextPage}>Next page</Button>) : '';
+    const prev_page = (pagination.page_number > 1) ? (<i className="bi bi-arrow-left-circle-fill text-dark left_back" style={{ fontSize: 50 }}  onClick={prevPage}></i>) : '';
+    const next_page = (pagination.page_number < 9964) ? (<i className="bi bi-arrow-right-circle-fill text-dark right_back" style={{ fontSize: 50 }}  onClick={nextPage}></i>) : '';
     const pageStatus = (status === 'loading...') ? (
         <section className="loading-section">
             <div className="loader">
@@ -157,9 +157,11 @@ const Home = () => {
                 })}>
                 <img src={art[0].image} alt="" />
                 <div>
-                <i className="bi bi-arrow-left-circle-fill text-dark" style={{ fontSize: 20 }}></i>
-                <h5 className="text-dark">{art.length}</h5>
-                <h5 className="text-dark">{art[0].place_of_origin}</h5>
+                <i className="bi bi-arrow-right-circle-fill text-dark" style={{ fontSize: 20 }}></i>
+                <menu>
+                <h5 className="text-dark text-uppercase">{art[0].place_of_origin}</h5>
+                <h6 className="text-dark">{art.length} Artwork</h6>
+                </menu>
                 </div>
                 </li>
             ))
@@ -177,9 +179,16 @@ const Home = () => {
         <h2>{meat.length} Countries</h2>
         </div>
         </div>
+        <div className='h6'>
+        Arts by country
+        </div>
+        <div  id={style.container}>
         {list}
+        <nav>
         {prev_page}
         {next_page}
+        </nav>
+        </div>
         </Container>
         </>
     )
