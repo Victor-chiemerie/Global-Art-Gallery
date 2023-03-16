@@ -170,10 +170,12 @@ const Home = () => {
     return (
         <>
         <Container className='mt-4'>
-        <div className='top'>
-        <img src={Icon} alt="" />
-        <h1>European Art</h1>
-        <h2>{meat.length}</h2>
+        <div className={style.top}>
+        <img src={Icon} alt="Map of Europe" />
+        <div>
+        <h1 className='display-4'><strong>European Art</strong></h1>
+        <h2>{meat.length} Countries</h2>
+        </div>
         </div>
         {list}
         {prev_page}
