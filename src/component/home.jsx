@@ -5,7 +5,7 @@ import fetchData from "../redux/API";
 import { Container } from 'react-bootstrap';
 import style from '../styles/home.module.scss';
 import './loadingPage.css';
-import Icon from '../images/europe.jpeg';
+import Icon from '../images/Nok.jpeg';
 
 const BASE_URL = 'https://api.artic.edu/api/v1/artworks?page=1'
 
@@ -59,9 +59,12 @@ const Home = () => {
     ]
 
     const { artwork, status, pagination } = useSelector((store) => store.art);
-
-    // const france = artwork.filter((french) => item.place_of_origin === 'Italy')
-    // console.log(france);
+    const [nation, setNation] = useState('');
+    
+    const searchfilter = (e) => {
+        const { value } = e.target;
+        setNation(value);
+      };
 
     const meat = [];
 
@@ -71,8 +74,6 @@ const Home = () => {
             meat.push(me);
         }
     })
-
-    console.log(meat);
 
 
     const [page, setPage] = useState(BASE_URL);
@@ -126,41 +127,21 @@ const Home = () => {
         dispatch(fetchData(page));
     }, [dispatch, page]);
 
-    // const displayArt = artwork.length ? (
-    //     <ul className={style.artList}>
-    //     {
-    //         artwork.map((art, index) => (
-    //             <li key={art.id} className={`item${index}`} onClick={()=>navigate('/details', {
-    //                 state: {
-    //                     object: art,
-    //                 },
-    //             })}>
-    //             <img src={art.image} alt="" />
-    //             <div>
-    //             <i className="bi bi-arrow-left-circle-fill text-dark" style={{ fontSize: 20 }}></i>
-    //             <h5 className="text-dark">{art.title}</h5>
-    //             </div>
-    //             </li>
-    //         ))
-    //     }
-    //     </ul>
-    // ) : (<section>{pageStatus}</section>);
-
-    const list = meat.length ? (
+    const displayArt = artwork.length ? (
         <ul className={style.artList}>
         {
-            meat.map((art, index) => (
+            artwork.filter((country) => country.place_of_origin.includes(nation)).map((art, index) => (
                 <li key={art.id} className={`item${index}`} onClick={()=>navigate('/details', {
                     state: {
                         object: art,
                     },
                 })}>
-                <img src={art[0].image} alt="" />
+                <img src={art.image} alt="" />
                 <div>
                 <i className="bi bi-arrow-right-circle-fill text-dark" style={{ fontSize: 20 }}></i>
                 <menu>
-                <h5 className="text-dark text-uppercase">{art[0].place_of_origin}</h5>
-                <h6 className="text-dark">{art.length} Artwork</h6>
+                <h5 className="text-dark text-uppercase">{art.title}</h5>
+                <h6 className="text-dark text-uppercase">{art.place_of_origin}</h6>
                 </menu>
                 </div>
                 </li>
@@ -169,21 +150,47 @@ const Home = () => {
         </ul>
     ) : (<section>{pageStatus}</section>);
 
+    // const list = meat.length ? (
+    //     <ul className={style.artList}>
+    //     {
+    //         meat.map((art, index) => (
+    //             <li key={art.id} className={`item${index}`} onClick={()=>navigate('/details', {
+    //                 state: {
+    //                     object: art,
+    //                 },
+    //             })}>
+    //             <img src={art[0].image} alt="" />
+    //             <div>
+    //             <i className="bi bi-arrow-right-circle-fill text-dark" style={{ fontSize: 20 }}></i>
+    //             <menu>
+    //             <h5 className="text-dark text-uppercase">{art[0].place_of_origin}</h5>
+    //             <h6 className="text-dark">{art.length} Artwork</h6>
+    //             </menu>
+    //             </div>
+    //             </li>
+    //         ))
+    //     }
+    //     </ul>
+    // ) : (<section>{pageStatus}</section>);
+
     return (
         <>
         <Container className='mt-4'>
+        <div className="form-group mb-2">
+        <input type="text" className="form-control" placeholder="filter by country example (France)" onChange={searchfilter} />
+      </div>
         <div className={style.top}>
             <img src={Icon} alt="Map of Europe" />
             <div>
-            <h1 className='display-4 text-uppercase'><strong>European Art</strong></h1>
-            <h2>{meat.length} Countries</h2>
+            <h1 className='display-4 text-uppercase'><strong>Historical Art</strong></h1>
+            <h2>{artwork.length} Countries</h2>
             </div>
         </div>
         <div className='h6'>
         Arts by country
         </div>
         <div  id={style.container}>
-        {list}
+        {displayArt}
         {prev_page}
         {next_page}
         </div>
