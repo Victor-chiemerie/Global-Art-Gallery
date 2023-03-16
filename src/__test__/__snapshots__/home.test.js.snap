@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders correctly for reserved state 1`] = `
+<div>
+  <p>
+    idle
+  </p>
+  <div>
+    Home page
+  </div>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Prev page
+  </button>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Next page
+  </button>
+</div>
+`;
