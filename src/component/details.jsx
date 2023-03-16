@@ -1,54 +1,31 @@
 import React from 'react'
-import { useNavigate, useLocation } from 'react-router-dom';
-import { Button, Container } from 'react-bootstrap/'
+import { useLocation } from 'react-router-dom';
+import { Container } from 'react-bootstrap/'
 import style from '../styles/detail.module.scss';
 
 const Details = () => {
 
-    const navigate = useNavigate();
     const location = useLocation();
 
-    const item = location.state.object;
-    console.log(item);
-
-    const list = item.length ? (
-      <ul className={style.artList}>
-      {
-          item.map((art, index) => (
-              <li key={art.id} className={`item${index} border`} onClick={()=>navigate('/', {
-                  state: {
-                      object: art,
-                  },
-              })}>
-              <img src={art.image} alt="" />
-              <div>
-              <p className="text-dark text-uppercase h6">{art.title}</p>
-              <menu>
-              <p className="text-dark m-0">{art.type}</p>
-              <i className="bi bi-arrow-right-circle-fill text-dark" style={{ fontSize: 20 }}></i>
-              </menu>
-              </div>
-              </li>
-          ))
-      }
-      </ul>
-  ) : (<section>No Artwork Found</section>);
+    const art = location.state.object;
+    console.log(art);
 
   return (
     <>
     <Container className='mt-4'>
-    <Button type='button' variant="danger" onClick={()=>navigate(-1)}>back to home page</Button>
-    <div className={style.top}>
-        <img src={item[0].image} alt="Map of Europe" />
-        <div>
-        <h1 className='display-3 text-uppercase'><strong>{item[0].place_of_origin}</strong></h1>
-        <h2>{item.length} Artwork</h2>
-        </div>
-        </div>
-        <div className='h6'>{item[0].place_of_origin}'s Art list</div>
-        <div  id={style.container}>
-        {list}
-        </div>
+    <div className={style.detail}>
+    <div><img src={art.image} alt="" className='mb-4' /></div>
+    <menu className='d-flex flex-column align-items-center'>
+    <div className='d-flex flex-column align-items-center'><h2 className='text-green'><strong>Title</strong></h2><p className="text-center">{art.title}</p></div>
+    <div className='d-flex flex-column align-items-center'><h2 className='text-green'><strong>Type</strong></h2><p className="text-center">{art.type}</p></div>
+    <div className='d-flex flex-column align-items-center'><h2 className='text-green'><strong>Original Dimension</strong></h2><p className="text-center">{art.dimensions}</p></div>
+    <div className='d-flex flex-column align-items-center'><h2 className='text-green'><strong>Artistic display</strong></h2><p className="text-center">{art.artist_display}</p></div>
+    <div className='d-flex flex-column align-items-center'><h2 className='text-green'><strong>Artist</strong></h2><p className="text-center">{art.credit_line}</p></div>
+    <div className='d-flex flex-column align-items-center'><h2 className='text-green'><strong>Date Diplayed</strong></h2><p className="text-center">{art.date_display}</p></div>
+    <div className='d-flex flex-column align-items-center'><h2 className='text-green'><strong>Country</strong></h2><p className="text-center">{art.place_of_origin}</p></div>
+    <div className='d-flex flex-column align-items-center'><h2 className='text-green'><strong>Exhibition Journey</strong></h2><p className="text-center">{art.exhibition_history}</p></div>
+    </menu>
+    </div>
     </Container>
     </>
   )
