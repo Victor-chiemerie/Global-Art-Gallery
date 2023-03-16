@@ -28,6 +28,7 @@ export const Slice = createSlice({
                     title: art.title,
                     image: `${IMAGE_URL}/${art.image_id}/full/843,/0/default.jpg`,
                     alt_text: art.thumbnail,
+                    type: art.artwork_type_title,
                     dimensions: art.dimensions,
                     artist_display: art.artist_display,
                     credit_line: art.credit_line,

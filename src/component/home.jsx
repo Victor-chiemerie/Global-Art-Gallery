@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import fetchData from "../redux/API";
 import { Container } from 'react-bootstrap';
-import style from '../styles/home.module.scss'
+import style from '../styles/home.module.scss';
 import './loadingPage.css';
 import Icon from '../images/europe.jpeg';
 
@@ -173,21 +173,19 @@ const Home = () => {
         <>
         <Container className='mt-4'>
         <div className={style.top}>
-        <img src={Icon} alt="Map of Europe" />
-        <div>
-        <h1 className='display-4'><strong>European Art</strong></h1>
-        <h2>{meat.length} Countries</h2>
-        </div>
+            <img src={Icon} alt="Map of Europe" />
+            <div>
+            <h1 className='display-4 text-uppercase'><strong>European Art</strong></h1>
+            <h2>{meat.length} Countries</h2>
+            </div>
         </div>
         <div className='h6'>
         Arts by country
         </div>
         <div  id={style.container}>
         {list}
-        <nav>
         {prev_page}
         {next_page}
-        </nav>
         </div>
         </Container>
         </>
