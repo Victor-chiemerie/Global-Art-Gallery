@@ -7,6 +7,7 @@ const initialState = {
     artwork: [],
     status: 'idle',
     pagination: {},
+    error: null,
 };
 
 export const Slice = createSlice({
@@ -42,7 +43,7 @@ export const Slice = createSlice({
                 pagination: { ...state.pagination, page_number: page.current_page, next_url: page.next_url || '', prev_url: page.prev_url || '', },
             };
         })
-        .addCase(fetchData.rejected, (state) => ({
+        .addCase(fetchData.rejected, (state, action) => ({
             ...state,
             status: 'Failed to load',
         }));

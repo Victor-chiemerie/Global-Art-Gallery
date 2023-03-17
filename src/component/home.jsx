@@ -7,14 +7,16 @@ import style from '../styles/home.module.scss';
 import './loadingPage.css';
 import Icon from '../images/Nok.jpeg';
 
-const BASE_URL = 'https://api.artic.edu/api/v1/artworks?page=1'
-
 const Home = () => {
 
+    const BASE_URL = 'https://api.artic.edu/api/v1/artworks?page=1'
     const { artwork, status, pagination } = useSelector((store) => store.art);
     const [page, setPage] = useState(BASE_URL);
     const [nation, setNation] = useState('');
     const navigate = useNavigate();
+    
+    const nextPage = () => setTimeout(setPage(pagination.next_url), 1000)
+    const prevPage = () => setTimeout(setPage(pagination.prev_url), 1000)
 
     const dispatch = useDispatch();
     useEffect(() => {
