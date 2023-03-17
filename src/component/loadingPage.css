@@ -43,7 +43,7 @@ section .loader .dot {
                 0 0 30px var(--loading-color),
                 0 0 40px var(--loading-color),
                 0 0 50px var(--loading-color);
-    margin: 15px 8px;
+    margin: 18px 10px;
     transform: scale(0.1);
     border-radius: 50%;
     animation: animateDot 2s linear infinite;
