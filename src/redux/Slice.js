@@ -46,14 +46,6 @@ export const Slice = createSlice({
             ...state,
             status: 'Failed to load',
         }));
-        // .addCase(fetchData.rejected, (state, action) => {
-        //     const error = action.error
-        //     return {
-        //         ...state,
-        //         status: 'failed',
-        //         artwork: [...state.artwork, { Message: error.message, code: error.code, name: error.name, }],
-        //     }
-        // });
     }
 });
 

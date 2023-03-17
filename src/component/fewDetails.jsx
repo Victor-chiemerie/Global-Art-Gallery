@@ -59,9 +59,6 @@ const FewDetials = () => {
 
     const { artwork, status, pagination } = useSelector((store) => store.art);
 
-    // const france = artwork.filter((french) => item.place_of_origin === 'Italy')
-    // console.log(france);
-
     const europeNations = Object.keys(Europe);
     europeNations.forEach((nation) => { 
         const me = artwork.filter((country) => country.place_of_origin === nation)

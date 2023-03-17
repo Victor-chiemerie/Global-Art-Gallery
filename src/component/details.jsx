@@ -8,7 +8,6 @@ const Details = () => {
     const location = useLocation();
 
     const art = location.state.object;
-    console.log(art);
 
   return (
     <>
