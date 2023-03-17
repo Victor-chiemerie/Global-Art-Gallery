@@ -28,9 +28,6 @@ const Home = () => {
         setNation(value);
       };
 
-    const nextPage = () => setTimeout(setPage(pagination.next_url), 1000)
-    const prevPage = () => setTimeout(setPage(pagination.prev_url), 1000)
-
     const prev_page = (pagination.page_number > 1) ? (<i className="bi bi-arrow-left-circle-fill text-dark left_back" style={{ fontSize: 50 }}  onClick={prevPage}></i>) : '';
     const next_page = (pagination.page_number < 9964) ? (<i className="bi bi-arrow-right-circle-fill text-dark right_back" style={{ fontSize: 50 }}  onClick={nextPage}></i>) : '';
     const pageStatus = (status === 'loading...') ? (
