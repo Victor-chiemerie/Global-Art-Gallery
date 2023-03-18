@@ -77,7 +77,7 @@
 
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-- [Live Demo Link](#)
+- [Live Demo Link](https://global-art.onrender.com)
 
 
 ## 💻 Getting Started <a name="getting-started"></a>
