@@ -34,7 +34,7 @@
 
 # 📖 METRICS WEBAPP  <a name="about-project"></a>
 
-**METRICS WEBAPP** is a webApp that contains Artistic works from different parts of the world, displaying them in segment of region, and into a smaller segment of each country. Here is a [link](#) to a video about the project.
+**METRICS WEBAPP** is a webApp that contains Artistic works from different parts of the world, displaying them in segment of region, and into a smaller segment of each country. Here is a [link](https://www.loom.com/share/c10beb4cac2d4135abba57a2908d0f53) to a video about the project.
 
 ## 🛠 Built With <a name="built-with"></a>
 - REACT
