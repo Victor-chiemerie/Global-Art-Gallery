@@ -1,40 +1,13 @@
 <a name="readme-top"></a>
 
-<!--
-HOW TO USE:
-This is an example of how you may give instructions on setting up your project locally.
-
-Modify this file to match your project and remove sections that don't apply.
-
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-OPTIONAL SECTIONS:
-- FAQ
-
-After you're finished please remove all the comments and instructions!
--->
 
 <div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
+  <img src="https://media4.giphy.com/media/141SYPuWxcNd0Q/giphy.gif" alt="logo" width="500"  height="auto" />
   <br/>
 
-  <h3><b>Microverse README Template</b></h3>
+  <h3><b>README</b></h3>
 
 </div>
-
-<!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
 
@@ -58,180 +31,136 @@ After you're finished please remove all the comments and instructions!
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-<!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 METRICS WEBAPP  <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
-
-**[your_project__name]** is a...
+**METRICS WEBAPP** is a webApp that contains Artistic works from different parts of the world, displaying them in segment of region, and into a smaller segment of each country. Here is a [link](https://www.loom.com/share/c10beb4cac2d4135abba57a2908d0f53) to a video about the project.
 
 ## 🛠 Built With <a name="built-with"></a>
+- REACT
+- REDUX
+- React Bootstrap
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
-
-<details>
+ <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https:/reactjs.com/">REACTJS</a></li>
+  </ul>
+</details> 
+<details>
+  <summary>style</summary>
+  <ul>
+    <li><a href="https://getbootstrap.com/docs/4.0/getting-started/introduction/">React Bootstrap</a></li>
+    <li><a href="https://sass-lang.com/">SASS</a></li>
   </ul>
 </details>
 
 <details>
-  <summary>Server</summary>
+<summary>state management</summary>
   <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li><a href="https://redux.js.org/introduction/getting-started">REDUXJS</a></li>
   </ul>
 </details>
 
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
-
-<!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **receive data from an API using await fetch**
+- **manage state using redux**
+- **create a Home page to display the yearly data**
+- **Create a page for each data using useparams.**
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
+
 
 ## 🚀 Live Demo <a name="live-demo"></a>
+- [Live Demo Link](https://global-art.onrender.com)
 
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://google.com)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
-To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need:
+- [git](https://git-scm.com/downloads): A tool for managing source code
+- [Visual Studio Code](https://code.visualstudio.com/): A source code editor
 
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
 
 ### Setup
 
 Clone this repository to your desired folder:
+https://github.com/Victor-chiemerie/metrics-webapp/
 
-<!--
+
 Example commands:
 
 ```sh
   cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  git clone git@github.com:myaccount/Module2_capstune_Project.git
 ```
---->
 
 ### Install
 
-Install this project with:
+- Run npm install after cloning the repo
 
-<!--
+install npx
+
 Example command:
 
 ```sh
   cd my-project
-  gem install
+  npx install
 ```
---->
 
 ### Usage
 
-To run the project, execute the following command:
+- Run npm start for development. 
+- Run npm run build for production
 
-<!--
-Example command:
-
-```sh
-  rails server
-```
---->
 
 ### Run tests
 
 To run tests, run the following command:
+- Run npx eslint . for JS check
+- Run npx eslint . --fix to fix JS errors if found
+- Run npx stylelint "**/*.{css,scss}" for CSS check
+- Run npx stylelint "**/*.{css,scss}" --fix to fix CSS errors if found.
 
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
 
 ### Deployment
 
 You can deploy this project using:
+- Github pages
 
-<!--
-Example:
+Github pages
 
-```sh
+<p>follow <a href="https://www.w3schools.com/git/git_remote_pages.asp?remote=github">these steps</a> for example</p>
 
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- AUTHORS -->
 
-## 👥 Authors <a name="authors"></a>
+##👥 Author <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
+👤**Nwadinigwe Victor**
 
-👤 **Author1**
+- GitHub: [@Victor-chiemerie](https://github.com/Victor-chiemerie/)
+- Twitter: [@VictorChiemer20](https://twitter.com/VictorChiemer20)
+- LinkedIn: [@victornwadinigwe](https://www.linkedin.com/in/victornwadinigwe/)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
+- I will add data of states revenue in each country
 
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- CONTRIBUTING -->
 
 ## 🤝 Contributing <a name="contributing"></a>
 
@@ -241,48 +170,38 @@ Feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+[Grace-Htet](https://github.com/GraceHtet) has been of tremendous help so far.
+Give a ⭐️ if you like this project!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
+- I would also appreciate Nelson Sakwa on behance for the access to his [project](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)), giving the inspiration to do this project
+- I would like to appreciate [Microverse](https://www.microverse.org/) for providing the resources and the platform for us to be a Professional full-stack developer.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FAQ (optional) -->
 
 ## ❓ FAQ (OPTIONAL) <a name="faq"></a>
 
-> Add at least 2 questions new developers would ask when they decide to use your project.
+- **[Are you sure that you are owner of this work]**
 
-- **[Question_1]**
+  - [Yes,]
 
-  - [Answer_1]
+- **[Can you make the work to be responsive]**
 
-- **[Question_2]**
+  - [yes]
 
-  - [Answer_2]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+This project is [MIT](LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

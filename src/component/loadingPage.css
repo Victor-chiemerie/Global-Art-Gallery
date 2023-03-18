@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --loading-color: #171917;
+}
+
+section {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: changeColor 5s linear infinite;
+}
+
+section h4 {
+  color: var(--loading-color);
+  font-family: consolas, sans-serif;
+  font-weight: 300;
+  letter-spacing: 8px;
+}
+
+section .loader {
+  position: relative;
+  display: flex;
+}
+
+section .loader .dot {
+  position: relative;
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: var(--loading-color);
+  box-shadow:
+    0 0 5px var(--loading-color),
+    0 0 10px var(--loading-color),
+    0 0 20px var(--loading-color),
+    0 0 30px var(--loading-color),
+    0 0 40px var(--loading-color),
+    0 0 50px var(--loading-color);
+  margin: 18px 10px;
+  transform: scale(0.1);
+  border-radius: 50%;
+  animation: animateDot 2s linear infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+section .loader:last-child .dot {
+  animation-delay: calc(-0.1s * var(--i));
+}
+
+@keyframes animateDot {
+  0% {
+    transform: scale(0.1);
+  }
+
+  10% {
+    transform: scale(1);
+  }
+
+  50%,
+  100% {
+    transform: scale(0.1);
+  }
+}

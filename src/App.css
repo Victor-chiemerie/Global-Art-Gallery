@@ -1,0 +1,22 @@
+li {
+  list-style-type: none;
+}
+
+.right_back {
+  position: fixed;
+  top: 50%;
+  right: 2%;
+  opacity: 0.5;
+}
+
+.left_back {
+  position: fixed;
+  top: 50%;
+  left: 2%;
+  opacity: 0.5;
+}
+
+.text-green {
+  color: #1a4410;
+  font-size: 27px;
+}
